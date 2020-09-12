@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {BrowserRouter as Router, Route, Link, Switch, BrowserRouter} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Navbar from './components/navbar';
 import Dashboar from './components/dashboard';
 import Footer from './components/footer';
@@ -14,35 +14,27 @@ function App() {
     <>
 
 <Router>
-<div class="">
+      <div>
       <Navbar />
        </div>
-
       <div className="row">
 
        <div className="col-2">  
        <Dashboar />
        </div>
        <div className="col-10">
+       <Switch>     
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/Register" component={Register} />
+          <Route exact path="/Password" component={Password} />      
+        </Switch>
        <Main />
        </div>
 
-       </div>
-     
+ </div>
         
-        <Switch>
-
-          
-          
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/Register" component={Register} />
-          <Route exact path="/Password" component={Password} />
-
-          
-        </Switch>
-
         <Footer />
-      </Router>
+ </Router>
 
 
   </>
